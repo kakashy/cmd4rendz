@@ -1,0 +1,73 @@
+:root {
+  scrollbar-width: 0.7rem;
+}
+body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.4rem;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(153, 92, 64);
+}
+body::-webkit-scrollbar-track {
+  background-color: black;
+}
+:root {
+  border: none;
+  top: auto;
+  font-size: 20px;
+}
+
+body {
+  background-image: linear-gradient(115deg, #d36729, #ad4218, #0c0b69); 
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  padding: 1rem;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blender-loc input {
+  background-color: #1E1300;
+  color: white;
+  border-radius: 5px;
+  height: 1.5rem;
+}
+.blend-loc input {
+  background-color: #1E1300;
+  color: white;
+  border-radius: 5px;
+  height: 1.5rem;
+}
+
+.file-spec {
+  display: flex;
+  flex-direction: row;
+}
+.file-spec input {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background-color: #1E1300;
+  color: white;
+  border: none;
+}
+
+.submit button {
+  outline: none;
+  border: none;
+  width: 7rem;
+  height: 2rem;
+  border-radius: 3px;
+  background-color: #aa5832;
+  cursor: pointer;
+}
+.submit button:hover {
+  width: 8rem;
+  background-color: #c24e21;
+}

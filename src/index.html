@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CM Blend</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div id="main">
+    <div class="tag">
+      <h2>CM Blend</h2>
+    </div>
+    <hr />
+    <div class="info">
+      <div class="blender-loc">
+        <p>Blender location</p>
+        <input
+          type="file"
+          id="blender"
+          required />
+      </div>
+      <div class="blend-loc">
+        <p>Blend file location</p>
+        <script>
+          const {dialog} = require('electron').remote;
+        </script>
+
+        <button id="blendbtn" onclick="
+          alert('aaaaa');
+        "> Blend </button>
+      </div>
+      </div>
+      <hr />
+      <div class="file-spec">
+        <dir class="start-fr">
+          <header>Start Frame</header>
+            <input
+              type="number"
+              placeholder="e.g 1"
+              required />
+            </dir>
+            <dir class="end-fr">
+              <header>End Frame</header>
+                <input
+                  type="number"
+                  placeholder="e.g 100"
+                  required />
+                </dir>
+        </div>
+    <div class="submit">
+      <button
+        id="render"
+        name="render">
+        Let's Go!
+      </button>
+    </div>
+  </div>
+
+  <script src="./find.js">
+  </script>
+</body>
+</html>
