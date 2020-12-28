@@ -27,6 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install dep
-        run: yarn i
+        run: yarn install
       - name: Make files
         run: yarn make
