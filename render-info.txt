@@ -1,0 +1,9 @@
+Blender 2.91.0 Beta (hash 906ff7b8fea8 built 2020-11-17 00:20:12)
+Read prefs: C:\Users\Kashi\AppData\Roaming\Blender Foundation\Blender\2.91\config\userpref.blend
+found bundled python: F:\Wares\blender-2.91.0-906ff7b8fea8-windows64\2.91\python
+Warning: 'OBJECT_PT_custom_panel_' doesn't have an alpha-numeric suffix
+Error: Cannot read file 'D:\Code\Projects\NW\electron\cmd4rendz\null': No such file or directory
+register_class(...):
+Warning: 'OBJECT_PT_custom_panel_' doesn't have an alpha-numeric suffix
+
+Blender quit

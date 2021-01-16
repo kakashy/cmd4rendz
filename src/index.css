@@ -24,50 +24,101 @@ body {
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
-  padding: 1rem;
-}
-
-#main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blender-loc input {
-  background-color: #1E1300;
-  color: white;
-  border-radius: 5px;
-  height: 1.5rem;
-}
-.blend-loc input {
-  background-color: #1E1300;
-  color: white;
-  border-radius: 5px;
-  height: 1.5rem;
-}
-
-.file-spec {
-  display: flex;
-  flex-direction: row;
-}
-.file-spec input {
   padding: 0.5rem;
-  border-radius: 8px;
-  background-color: #1E1300;
-  color: white;
-  border: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.submit button {
-  outline: none;
+.hold {
+  width: 70vw;
+  height: 20vh;
+  font-size: 13px;
+  border-radius: 4px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background-color: rgb(31, 28, 27);
+}
+
+#filePath {
+  font-size: 10px;
+}
+
+.blend-hold {
+  transition: 250ms ease-in-out;
+}
+
+.blend-reset {
+  width: 6rem;
+  height: 1.5rem;
   border: none;
-  width: 7rem;
-  height: 2rem;
-  border-radius: 3px;
-  background-color: #aa5832;
+  outline: none;
   cursor: pointer;
 }
-.submit button:hover {
-  width: 8rem;
-  background-color: #c24e21;
+.blend-reset:hover {
+  background-color: rgb(207, 202, 194);
+}
+
+.tablink {
+  background-color: rgb(31, 28, 27);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 32vw;
+  bottom: 0;
+  transition: 200ms ease-in-out;
+}
+
+.tablink:hover {
+  background-color: rgb(66, 60, 56);
+  color: rgb(233, 200, 92);
+}
+
+.tabcontent {
+  color: rgb(221, 205, 205);
+  display: none;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  transition: 200ms ease-in-out;
+}
+
+.renderBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 15rem;
+  height: 2rem;
+  font-size: 1rem;
+  background-color: #5d5d5a;
+  color: #fff4e3;
+  align-items: center;
+  top: 50%;
+}
+.renderBtn:hover {
+  background-color: #284699;
+}
+#render-out {
+  background-color: black;
+  color: #5d5d5a;
+  top: 80vh;
+  height: 80px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+@media only screen and (max-width: 500px) {
+  .tablink {
+    font-size: 15px;
+    transition: 200ms ease-in-out;
+  }
+  .renderBtn{
+    width: 8rem;
+  }
 }
