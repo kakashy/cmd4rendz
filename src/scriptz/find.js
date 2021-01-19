@@ -66,4 +66,22 @@ blendPath.addEventListener('drop', (e) => {
     }
     
   }
-})
+});
+// fetch an image frame for a single render
+var iFrame = document.getElementById("imgFrame");
+iFrame.addEventListener("change", function(){
+    var ifr = document.getElementById("imgFrame").value;
+    sessionStorage.setItem("iFrame", ifr);
+});
+// fetch the starting frame
+var iFrame = document.getElementById("startFrame");
+iFrame.addEventListener("change", function(){
+    var sfr = document.getElementById("startFrame").value;
+    sessionStorage.setItem("sFrame", sfr);
+});
+// fetch the ending frame
+var iFrame = document.getElementById("endFrame");
+iFrame.addEventListener("change", function(){
+    var efr = document.getElementById("endFrame").value;
+    sessionStorage.setItem("eFrame", efr);
+});

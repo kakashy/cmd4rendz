@@ -20,21 +20,36 @@
     and output folder-->
   <div id="blend" class="tabcontent">
     <div id="blend-hold" class="hold">Drop your .blend file here</div>
-
     <!--behaviour can be found in ./scriptz/general.js-->
     <button id="blend-reset" class="blend-reset">Reset</button>
   </div>
 
     <!--"render" does the render-->
   <div id="render" class="tabcontent">
-    <button id="renderBtn" class="renderBtn">Render!</button>
+    <button class="accordion">Single Image</button>
+      <div class="panel">
+        <input type="number" class="rndr-pref" id="imgFrame" value="" placeholder="Frame to render">
+        <button id="img-renderBtn" class="renderBtn">Image Render!</button>
+
+      </div>
+
+      <button class="accordion">Animation</button>
+      <div class="panel">
+        <input type="number" class="rndr-pref" id="startFrame" placeholder="Start frame">
+        <input type="number" class="rndr-pref" id="endFrame" placeholder="End frame">
+        <button id="anim-renderBtn" class="renderBtn">Animation Render!</button>
+
+      </div>
     <div id="render-out">CMD_</div>
   </div>
 
   <!--buttons to select the pages-->
-  <button class="tablink" onclick="openSect('blender', this)" id="defaultOpen">Blender</button>
-  <button class="tablink" onclick="openSect('blend', this)">Blend</button>
-  <button class="tablink" onclick="openSect('render', this)">Render</button>
+  <div class="tabhold">
+    <button class="tablink" onclick="openSect('blender', this)" id="defaultOpen">Blender</button>
+    <button class="tablink" onclick="openSect('blend', this)">Blend</button>
+    <button class="tablink" onclick="openSect('render', this)">Render</button>
+  </div>
+  
 </body>
 <script src="./scriptz/tab.js"></script>
 <script src="./scriptz/general.js"></script>
