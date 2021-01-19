@@ -1,6 +1,6 @@
 {
-  "name": "cmd4rendz",
-  "productName": "cmd4rendz",
+  "name": "Cmd4Rendz",
+  "productName": "Cmd4Rendz",
   "version": "0.0.1",
   "description": "Leverage command line arguments to perform quick Blender renders",
   "main": "src/index.js",
@@ -24,7 +24,9 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "cmd4rendz"
+            "name": "Cmd4Rendz",
+            "icon": "./src/resources/media/cmd4rndz.ico",
+            "asar": true
           }
         },
         {

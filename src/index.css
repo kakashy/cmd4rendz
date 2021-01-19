@@ -24,50 +24,151 @@ body {
   color: black;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: auto;
-  padding: 1rem;
-}
-
-#main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blender-loc input {
-  background-color: #1E1300;
-  color: white;
-  border-radius: 5px;
-  height: 1.5rem;
-}
-.blend-loc input {
-  background-color: #1E1300;
-  color: white;
-  border-radius: 5px;
-  height: 1.5rem;
-}
-
-.file-spec {
-  display: flex;
-  flex-direction: row;
-}
-.file-spec input {
   padding: 0.5rem;
-  border-radius: 8px;
-  background-color: #1E1300;
-  color: white;
-  border: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
-.submit button {
-  outline: none;
+.hold {
+  width: 70vw;
+  height: 20vh;
+  font-size: 13px;
+  border-radius: 4px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background-color: rgb(31, 28, 27);
+}
+
+#filePath {
+  font-size: 10px;
+}
+
+.blend-hold {
+  transition: 250ms ease-in-out;
+}
+
+.blend-reset {
+  width: 6rem;
+  height: 1.5rem;
   border: none;
-  width: 7rem;
-  height: 2rem;
-  border-radius: 3px;
-  background-color: #aa5832;
+  outline: none;
   cursor: pointer;
 }
-.submit button:hover {
-  width: 8rem;
-  background-color: #c24e21;
+.blend-reset:hover {
+  background-color: rgb(207, 202, 194);
+}
+
+.tabhold {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+.tablink {
+  background-color: rgb(31, 28, 27);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 32vw;
+  transition: 200ms ease-in-out;
+}
+
+.tablink:hover {
+  background-color: rgb(66, 60, 56);
+  color: rgb(233, 200, 92);
+}
+
+.tabcontent {
+  color: rgb(221, 205, 205);
+  display: none;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  transition: 200ms ease-in-out;
+}
+.rndr-pref {
+  width: 15rem;
+  border-radius: 5px;
+  border-width: 2px;
+  padding: 7px 10px;
+  outline: none;
+  border-color: #ad4218;
+  background-color: rgb(218, 208, 194);
+  color: black;
+}
+.rndr-pref:active, .rndr-pref:hover {
+  width: 17rem;
+  transition: 200ms ease-in-out;
+}
+.renderBtn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 10rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  background-color: #5d5d5a;
+  color: #fff4e3;
+  align-items: center;
+}
+.renderBtn:hover {
+  background-color: rgb(238, 137, 78);
+}
+#render-out {
+  overflow: auto;
+  background-color: black;
+  color: #5d5d5a;
+  scrollbar-track-color: tomato;
+  position: fixed;
+  bottom: 11vh;
+  height: 80px;
+  width: 70vw;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.accordion {
+  background-color: rgb(233, 200, 92);
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color:  rgb(190, 157, 48);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 5px 18px;
+  background-color: rgb(58, 55, 54);
+  gap: 5px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  .tablink {
+    font-size: 15px;
+    transition: 200ms ease-in-out;
+  }
+  .renderBtn{
+    width: 5rem;
+    font-size: 0.7rem;
+  }
+  .rndr-pref {
+    width: 7rem;
+  }
 }

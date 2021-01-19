@@ -3,61 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CM Blend</title>
+  <title>CMD 4 Rendz</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div id="main">
-    <div class="tag">
-      <h2>CM Blend</h2>
-    </div>
-    <hr />
-    <div class="info">
-      <div class="blender-loc">
-        <p>Blender location</p>
-        <input
-          type="file"
-          id="blender"
-          required />
-      </div>
-      <div class="blend-loc">
-        <p>Blend file location</p>
-        <script>
-          const {dialog} = require('electron').remote;
-        </script>
-
-        <button id="blendbtn" onclick="
-          alert('aaaaa');
-        "> Blend </button>
-      </div>
-      </div>
-      <hr />
-      <div class="file-spec">
-        <dir class="start-fr">
-          <header>Start Frame</header>
-            <input
-              type="number"
-              placeholder="e.g 1"
-              required />
-            </dir>
-            <dir class="end-fr">
-              <header>End Frame</header>
-                <input
-                  type="number"
-                  placeholder="e.g 100"
-                  required />
-                </dir>
-        </div>
-    <div class="submit">
-      <button
-        id="render"
-        name="render">
-        Let's Go!
-      </button>
-    </div>
+  <!--Content for the three main pages grouped into <div> elements-->
+    <!--"blender" is used to find the program's .exe and
+    add it to the path for use in CMD execution-->
+  <div id="blender" class="tabcontent">
+    <p class="explain" id="explain">Please drag your prefered blender.exe to add it to your system's path. You only need to do this once.</p>
+    <div id="blender-hold" class="hold"> Drop 'em</div>
+    <p id="filePath">Can't find path</p>
+  </div>
+  
+    <!--"blend" is used to find path to file, render settings
+    and output folder-->
+  <div id="blend" class="tabcontent">
+    <div id="blend-hold" class="hold">Drop your .blend file here</div>
+    <!--behaviour can be found in ./scriptz/general.js-->
+    <button id="blend-reset" class="blend-reset">Reset</button>
   </div>
 
-  <script src="./find.js">
-  </script>
+    <!--"render" does the render-->
+  <div id="render" class="tabcontent">
+    <button class="accordion">Single Image</button>
+      <div class="panel">
+        <input type="number" class="rndr-pref" id="imgFrame" value="" placeholder="Frame to render">
+        <button id="img-renderBtn" class="renderBtn">Image Render!</button>
+
+      </div>
+
+      <button class="accordion">Animation</button>
+      <div class="panel">
+        <input type="number" class="rndr-pref" id="startFrame" placeholder="Start frame">
+        <input type="number" class="rndr-pref" id="endFrame" placeholder="End frame">
+        <button id="anim-renderBtn" class="renderBtn">Animation Render!</button>
+
+      </div>
+    <div id="render-out">CMD_</div>
+  </div>
+
+  <!--buttons to select the pages-->
+  <div class="tabhold">
+    <button class="tablink" onclick="openSect('blender', this)" id="defaultOpen">Blender</button>
+    <button class="tablink" onclick="openSect('blend', this)">Blend</button>
+    <button class="tablink" onclick="openSect('render', this)">Render</button>
+  </div>
+  
 </body>
+<script src="./scriptz/tab.js"></script>
+<script src="./scriptz/general.js"></script>
+<script src="./scriptz/find.js"></script>
+<script src="./scriptz/srv.js"></script>
 </html>
