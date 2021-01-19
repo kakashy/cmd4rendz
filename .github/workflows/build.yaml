@@ -30,7 +30,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: Win-latest
+          name: Windows
           path: out
       - name: Release
         uses: softprops/action-gh-release@v1
