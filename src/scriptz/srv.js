@@ -6,7 +6,7 @@ var arenderer = document.getElementById("anim-renderBtn");
 irenderer.addEventListener("click", function(){
 
         
-        let comanda = "blender -b " + sessionStorage.getItem("blendPath") + " -f " + sessionStorage.getItem("iFrame") +" > render-info.txt";
+        let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -f ' + sessionStorage.getItem("iFrame") + ' > render-info.txt';
         let bat = spawn(comanda, {
             shell: true
         }
@@ -26,7 +26,7 @@ irenderer.addEventListener("click", function(){
                 console.log(err)
                 return
             }
-            console.log(data);
+            console.log(comanda);
             document.getElementById("render-out").innerHTML = data;
         })
         
