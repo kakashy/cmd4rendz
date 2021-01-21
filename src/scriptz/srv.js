@@ -37,7 +37,7 @@ irenderer.addEventListener("click", function(){
 arenderer.addEventListener("click", function(){
 
         
-    let comanda = "blender -b " + sessionStorage.getItem("blendPath") + " -s " + sessionStorage.getItem("sFrame") + " -e " + sessionStorage.getItem("eFrame") + " -a > render-info.txt";
+    let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > render-info.txt';
     let bat = spawn(comanda, {
         shell: true
     }
