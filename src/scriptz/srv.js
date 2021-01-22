@@ -7,8 +7,9 @@ irenderer.addEventListener("click", function(){
 
         
         let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -f ' + sessionStorage.getItem("iFrame") + ' > render-info.txt';
+        let wd = localStorage.getItem("filePath");
         let bat = spawn(comanda, {
-            shell: true
+            shell: true,
         }
     );
 
@@ -20,6 +21,7 @@ irenderer.addEventListener("click", function(){
     })
     bat.on("exit", (code) => {
         console.log(code);
+        console.log(wd);
 
         fs.readFile('./render-info.txt', 'utf8', (err, data) => {
             if (err) {
@@ -37,9 +39,10 @@ irenderer.addEventListener("click", function(){
 arenderer.addEventListener("click", function(){
 
         
-    let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > render-info.txt';
+    let comanda = 'blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > render-info.txt';
+    let wd = localStorage.getItem("filePath")
     let bat = spawn(comanda, {
-        shell: true
+        shell: true,
     }
 );
 
