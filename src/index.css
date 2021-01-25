@@ -120,13 +120,52 @@ body {
 .renderBtn:hover {
   background-color: rgb(238, 137, 78);
 }
+.engine-drop {
+  background-color: rgb(175, 104, 76);
+  color: white;
+  padding: 16px;
+  font-size: 14px;
+  border: none;
+}
+
+.engine-select {
+  position: relative;
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.engine-content {
+  display: none;
+  position: absolute;
+  background-color: #61605c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.engine-content a {
+  color: #ff7d32;
+  padding: 8px 6px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.engine-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.engine-select:hover .engine-content {display: flex; flex-direction: row;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.engine-select:hover .engine-drop {background-color: #8e553e;}
+
 #render-out {
   overflow: auto;
   background-color: black;
   color: #5d5d5a;
   scrollbar-track-color: tomato;
-  position: fixed;
-  bottom: 11vh;
+  position: sticky;
   height: 80px;
   width: 70vw;
   border-radius: 4px;
@@ -151,7 +190,7 @@ body {
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  padding: 5px 18px;
+  padding: 25px 18px;
   background-color: rgb(58, 55, 54);
   gap: 5px;
   display: none;

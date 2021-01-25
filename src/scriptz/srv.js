@@ -3,11 +3,34 @@ var fs = require('fs');
 var irenderer = document.getElementById("img-renderBtn");
 var arenderer = document.getElementById("anim-renderBtn");
 
-irenderer.addEventListener("click", function(){
+var cyc = document.getElementById("cyc-select");
+var eve = document.getElementById("eve-select");
+var wkb = document.getElementById("wkb-select");
 
+/* Engine Selection. While it might not be necessary to change engine type,
+the option to do so might be necessary where one needs to test different looks */
+// Save Engine preferences when link is clicked
+cyc.addEventListener("click", function(){
+    sessionStorage.setItem("rEngine", "CYCLES");
+});
+eve.addEventListener("click", function(){
+    sessionStorage.setItem("rEngine", "BLENDER_EEVEE");
+});
+wkb.addEventListener("click", function(){
+    sessionStorage.setItem("rEngine", "BLENDER_WORKBENCH");
+});
+
+irenderer.addEventListener("click", function(){
         
-        let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -f ' + sessionStorage.getItem("iFrame") + ' > render-info.txt';
+        let rEngine = sessionStorage.getItem("rEngine");
+        let comanda = 'blender -b "' + sessionStorage.getItem("blendPath") + '" -f ' + sessionStorage.getItem("iFrame") + ' -E ' + rEngine + ' > render-info.txt';
         let wd = localStorage.getItem("filePath");
+        // safety net for null engine selection until I find a way to properly scrap .blend files
+        if(rEngine==null){
+            sessionStorage.setItem("rEngine", " CYCLES")
+        } else {
+            console.log("Engine selected")
+        };
         let bat = spawn(comanda, {
             shell: true,
         }
@@ -38,9 +61,15 @@ irenderer.addEventListener("click", function(){
 // animation trigger
 arenderer.addEventListener("click", function(){
 
-        
-    let comanda = 'blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > render-info.txt';
+    let rEngine = sessionStorage.getItem("rEngine");        
+    let comanda = 'blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -E ' + rEngine + ' -a > render-info.txt';
     let wd = localStorage.getItem("filePath")
+    // safety net for null engine selection until I find a way to properly scrap .blend files
+    if(rEngine==null){
+        sessionStorage.setItem("rEngine", " CYCLES")
+    } else {
+        console.log("Engine selected")
+    };
     let bat = spawn(comanda, {
         shell: true,
     }
