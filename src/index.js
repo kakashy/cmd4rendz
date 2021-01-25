@@ -1,6 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
-const { fstat } = require('fs');
+const fs = require('fs');
 
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -34,6 +34,13 @@ const createWindow = () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
+app.on('ready', () => {
+  var home = require("os").homedir();
+  var renderLog = home + '\\Documents\\CMD4Rendz\\Logs';
+  if (!fs.existsSync(renderLog)){
+    fs.mkdirSync(renderLog, {recursive: true});
+  }
+})
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.

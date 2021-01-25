@@ -11,7 +11,7 @@
     <!--"blender" is used to find the program's .exe and
     add it to the path for use in CMD execution-->
   <div id="blender" class="tabcontent">
-    <p class="explain" id="explain">Please drag your prefered blender.exe to add it to your system's path. You only need to do this once.</p>
+    <p class="explain" id="explain">Please drag your prefered blender.exe. You only need to do this once.</p>
     <div id="blender-hold" class="hold"> Drop 'em</div>
     <p id="filePath">Can't find path</p>
   </div>
@@ -31,11 +31,11 @@
         <input type="number" class="rndr-pref" id="imgFrame" value="" placeholder="Frame to render">
         <!-- Engine selection-->
         <div class="engine-select">
-          <button class="engine-drop">Render Engine</button>
+          <button class="engine-drop" id="eng-drop">Render Engine</button>
           <div class="engine-content">
-            <a href="#" id="cyc-select">Cycles</a>
-            <a href="#" id="eve-select">EEVEE</a>
-            <a href="#" id="wkb-select">Workbench</a>
+            <a href="#" id="cyc-select" class="cyc-select">Cycles</a>
+            <a href="#" id="eve-select" class="eve-select">EEVEE</a>
+            <a href="#" id="wkb-select" class="wkb-select">Workbench</a>
           </div>
         </div>
         <button id="img-renderBtn" class="renderBtn">Image Render!</button>
@@ -48,11 +48,11 @@
         <input type="number" class="rndr-pref" id="endFrame" placeholder="End frame">
         <!-- Engine selection-->
         <div class="engine-select">
-          <button class="engine-drop">Render Engine</button>
+          <button class="engine-drop" id="a-eng-drop">Render Engine</button>
           <div class="engine-content">
-            <a href="#" id="cyc-select">Cycles</a>
-            <a href="#" id="eve-select">EEVEE</a>
-            <a href="#" id="wkb-select">Workbench</a>
+            <a href="#" id="a-cyc-select" class="cyc-select">Cycles</a>
+            <a href="#" id="a-eve-select" class="eve-select">EEVEE</a>
+            <a href="#" id="a-wkb-select" class="wkb-select">Workbench</a>
           </div>
         </div>
         <button id="anim-renderBtn" class="renderBtn">Animation Render!</button>

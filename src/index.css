@@ -210,4 +210,7 @@ body {
   .rndr-pref {
     width: 7rem;
   }
+  .rndr-pref:hover {
+    width: 7.5rem;
+  }
 }
