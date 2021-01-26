@@ -160,6 +160,26 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .engine-select:hover .engine-drop {background-color: #8e553e;}
 
+#logBtn {
+  visibility: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  padding: 10px;
+  border-radius: 2px;
+  background-color: rgb(31, 30, 30);
+  color: #ff7d32;
+}
+#logBtn:hover {
+  background-color: rgb(59, 59, 59);
+  color: #ff5132;
+}
+#logBtn.show {
+  visibility: visible;
+  transition: 350ms ease-in-out;
+}
+
 #render-out {
   overflow: auto;
   background-color: black;

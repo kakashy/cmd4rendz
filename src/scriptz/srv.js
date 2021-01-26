@@ -1,9 +1,12 @@
 let spawn = require("child_process").spawn;
 var fs = require('fs');
 var path = require('path');
+const { shell } = require('electron');
+const logFile = "%userprofile%/Documents/CMD4Rendz/Logs/render-info.txt";
 const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
+const lBtn = document.getElementById("logBtn");
 
 var irenderer = document.getElementById("img-renderBtn");
 var arenderer = document.getElementById("anim-renderBtn");
@@ -51,7 +54,7 @@ irenderer.addEventListener("click", function(){
         
         let rEngine = sessionStorage.getItem("rEngine");
         let wd = path.dirname(localStorage.getItem("filePath"));
-        let comanda = 'c: && cd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/render-info.txt';
+        let comanda = 'c: && cd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
         // safety net for null engine selection until I find a way to properly scrap .blend files
         if(rEngine==null){
             sessionStorage.setItem("rEngine", " CYCLES")
@@ -83,12 +86,13 @@ irenderer.addEventListener("click", function(){
         if (code == 0){
 
             fBar.className = "show";
+            lBtn.className = "show";
 
             // After 3 seconds, remove the show class from DIV
             setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
-            rOut.innerHTML = "Render Complete"
+            rOut.innerHTML = "Render Complete";
         } else {
-            // some errors occured
+            rOut.innerHTML = "Something went wrong :(";
         };
 
         // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
@@ -101,14 +105,14 @@ irenderer.addEventListener("click", function(){
         // })
         
     })
-})
+});
 
 // animation trigger
 arenderer.addEventListener("click", function(){
 
     let arEngine = sessionStorage.getItem("arEngine");
     let wd = path.dirname(localStorage.getItem("filePath"));
-    let comanda = 'c: && cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/render-info.txt';
+    let comanda = 'c: && cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
     // safety net for null engine selection until I find a way to properly scrap .blend files
     if(arEngine==null){
         sessionStorage.setItem("arEngine", " CYCLES")
@@ -117,6 +121,7 @@ arenderer.addEventListener("click", function(){
     };
         // Add the "show" class to DIV
         xBar.className = "show";
+        lBtn.className = "show";
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
@@ -143,7 +148,7 @@ bat.on("exit", (code) => {
         setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
         rOut.innerHTML = "Render Complete"
     } else {
-        // some errors occured
+        rOut.innerHTML = "Something went wrong :(";
     };
 
     // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
@@ -156,5 +161,10 @@ bat.on("exit", (code) => {
     // })
     
 })
-})
+});
+
+// check logs
+lBtn.addEventListener("click", function(){
+    shell.showItemInFolder(logFile);
+});
 
