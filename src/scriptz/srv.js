@@ -1,6 +1,10 @@
 let spawn = require("child_process").spawn;
 var fs = require('fs');
 var path = require('path');
+const fBar = document.getElementById("foodbar");
+const rOut = document.getElementById("render-out");
+const xBar = document.getElementById("snackbar");
+
 var irenderer = document.getElementById("img-renderBtn");
 var arenderer = document.getElementById("anim-renderBtn");
 
@@ -47,27 +51,45 @@ irenderer.addEventListener("click", function(){
         
         let rEngine = sessionStorage.getItem("rEngine");
         let wd = path.dirname(localStorage.getItem("filePath"));
-        let comanda = 'cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/render-info.txt';
+        let comanda = 'c: && cd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/render-info.txt';
         // safety net for null engine selection until I find a way to properly scrap .blend files
         if(rEngine==null){
             sessionStorage.setItem("rEngine", " CYCLES")
         } else {
             console.log("Engine selected")
         };
-        let bat = spawn(comanda, {
+        // Add the "show" class to DIV
+        xBar.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
+        rOut.innerHTML = "Rendering...";
+      let bat = spawn(comanda, {
             shell: true,
         }
     );
 
-    bat.stdout.on("data", (data) => {
-        console.log(data);
+    bat.stdout.on("data", (chunk) => {
+        console.log(chunk);
     })
     bat.stderr.on("data", (err) => {
-        console.log(err);
+        console.log(comanda);
+        console.log(err.toString());
+        alert(err.toString());
     })
     bat.on("exit", (code) => {
         console.log(code);
-        console.log(wd);
+
+        if (code == 0){
+
+            fBar.className = "show";
+
+            // After 3 seconds, remove the show class from DIV
+            setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
+            rOut.innerHTML = "Render Complete"
+        } else {
+            // some errors occured
+        };
 
         // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
         //     if (err) {
@@ -86,13 +108,19 @@ arenderer.addEventListener("click", function(){
 
     let arEngine = sessionStorage.getItem("arEngine");
     let wd = path.dirname(localStorage.getItem("filePath"));
-    let comanda = 'cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/render-info.txt';
+    let comanda = 'c: && cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/render-info.txt';
     // safety net for null engine selection until I find a way to properly scrap .blend files
     if(arEngine==null){
         sessionStorage.setItem("arEngine", " CYCLES")
     } else {
-        console.log("Engine selected")
+        console.log("Engine selected");
     };
+        // Add the "show" class to DIV
+        xBar.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
+        rOut.innerHTML = "Rendering...";
     let bat = spawn(comanda, {
         shell: true,
     }
@@ -102,11 +130,21 @@ bat.stdout.on("data", (data) => {
     console.log(data);
 })
 bat.stderr.on("data", (err) => {
-    console.log(err);
+    console.log(err.toString());
+    alert(err.toString());
 })
 bat.on("exit", (code) => {
     console.log(code);
-    console.log(wd);
+    if (code == 0){
+
+        fBar.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
+        rOut.innerHTML = "Render Complete"
+    } else {
+        // some errors occured
+    };
 
     // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
     //     if (err) {

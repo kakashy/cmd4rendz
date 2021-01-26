@@ -57,17 +57,17 @@ app.on('activate', () => {
     createWindow();
   }
 });
-app.on('before-quit', () => {
-  const path = './../render-info.txt'
-
-  fs.unlink(path, (err) => {
-    if (err) {
-      console.log(err)
-      return
-    }
-    //render-info.txt removed
-  })
-})
+// app.on('before-quit', () => {
+//   const path = './render-info.txt'
+// 
+//   fs.unlink(path, (err) => {
+//     if (err) {
+//       console.log(err)
+//       return
+//     }
+//     //render-info.txt removed
+//   })
+// })
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

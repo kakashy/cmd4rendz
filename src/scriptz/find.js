@@ -58,7 +58,7 @@ blendPath.addEventListener('drop', (e) => {
       // Confirm delivery
       document.getElementById("blend-hold").style.background = "#17b978";
       document.getElementById("blend-hold").style.color = "#364f6b";
-      document.getElementById("blend-hold").innerHTML = "Done!";
+      document.getElementById("blend-hold").innerHTML = "Done! <br /> " + g.path;
     } else {
       document.getElementById("blend-hold").style.background = "#d72323";
       document.getElementById("blend-hold").style.color = "#364f6b";
