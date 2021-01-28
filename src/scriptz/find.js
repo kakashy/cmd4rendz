@@ -14,7 +14,7 @@ blenderPath.addEventListener('drop', (e) => {
      if (bndrExt != ".exe") {
        //advise user to use an executable file
        document.getElementById("blender-hold").style.background = "#d72323";
-       document.getElementById("blender-hold").style.color = "grey";
+       document.getElementById("blender-hold").style.color = "white";
        document.getElementById("blender-hold").innerHTML = "Please use an executable file.";
        localStorage.removeItem("filepath");
      } else if (bndrName == "blender.exe") {
@@ -57,11 +57,11 @@ blendPath.addEventListener('drop', (e) => {
     if (bndExt == ".blend") {
       // Confirm delivery
       document.getElementById("blend-hold").style.background = "#17b978";
-      document.getElementById("blend-hold").style.color = "#364f6b";
+      document.getElementById("blend-hold").style.color = "#fff";
       document.getElementById("blend-hold").innerHTML = "Done! <br /> " + g.path;
     } else {
       document.getElementById("blend-hold").style.background = "#d72323";
-      document.getElementById("blend-hold").style.color = "#364f6b";
+      document.getElementById("blend-hold").style.color = "#fff";
       document.getElementById("blend-hold").innerHTML = "Wrong file type. Try again.";
     }
     

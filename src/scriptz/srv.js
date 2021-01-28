@@ -1,7 +1,7 @@
 let spawn = require("child_process").spawn;
 var fs = require('fs');
 var path = require('path');
-const { shell } = require('electron');
+const { shell, app } = require('electron').remote;
 const logFile = "%userprofile%/Documents/CMD4Rendz/Logs/render-info.txt";
 const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
@@ -76,16 +76,15 @@ irenderer.addEventListener("click", function(){
         console.log(chunk);
     })
     bat.stderr.on("data", (err) => {
-        console.log(comanda);
-        console.log(err.toString());
         alert(err.toString());
     })
     bat.on("exit", (code) => {
         console.log(code);
 
         if (code == 0){
-
+            // show toast notification
             fBar.className = "show";
+            // show log button
             lBtn.className = "show";
 
             // After 3 seconds, remove the show class from DIV
@@ -93,16 +92,20 @@ irenderer.addEventListener("click", function(){
             rOut.innerHTML = "Render Complete";
         } else {
             rOut.innerHTML = "Something went wrong :(";
+            lBtn.className = "show";
+            // I'll look for a way to show the error log directly in the app
+
+            // fs.readFile('%userdata%/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
+            //     if (err) {
+            //         console.log(err)
+            //         return
+            //     }
+            //     console.log(comanda);
+            //     document.getElementById("render-out").innerHTML = data;
+            // });
         };
 
-        // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
-        //     if (err) {
-        //         console.log(err)
-        //         return
-        //     }
-        //     console.log(comanda);
-        //     document.getElementById("render-out").innerHTML = data;
-        // })
+        
         
     })
 });
@@ -121,7 +124,6 @@ arenderer.addEventListener("click", function(){
     };
         // Add the "show" class to DIV
         xBar.className = "show";
-        lBtn.className = "show";
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
@@ -143,12 +145,14 @@ bat.on("exit", (code) => {
     if (code == 0){
 
         fBar.className = "show";
+        lBtn.className = "show";
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
         rOut.innerHTML = "Render Complete"
     } else {
         rOut.innerHTML = "Something went wrong :(";
+        lBtn.className = "show";
     };
 
     // fs.readFile('~/Documents/CMD4Rendz/render-info.txt', 'utf8', (err, data) => {
@@ -165,6 +169,7 @@ bat.on("exit", (code) => {
 
 // check logs
 lBtn.addEventListener("click", function(){
-    shell.showItemInFolder(logFile);
+    // open the log file from where it's stored
+    shell.openPath(path.join(app.getPath("documents"), "CMD4Rendz", "Logs", "render-info.txt"));
 });
 
