@@ -82,14 +82,18 @@ irenderer.addEventListener("click", function(){
         console.log(code);
 
         if (code == 0){
-            // show toast notification
-            fBar.className = "show";
+            // show toast notification; EDIT: Commented out since a native notification might be a better choice
+            // fBar.className = "show";
             // show log button
             lBtn.className = "show";
 
-            // After 3 seconds, remove the show class from DIV
-            setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
+            // After 3 seconds, remove the show class from DIV; EDIT: Commented out since a native notification might be a better choice
+            // setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
             rOut.innerHTML = "Render Complete";
+
+            const successNotification = new Notification ('CMD 4 Rendz', {
+                body: 'Your render is complete'
+            });
         } else {
             rOut.innerHTML = "Something went wrong :(";
             lBtn.className = "show";
@@ -144,11 +148,14 @@ bat.on("exit", (code) => {
     console.log(code);
     if (code == 0){
 
-        fBar.className = "show";
+        // fBar.className = "show";
         lBtn.className = "show";
 
+        const successNotification = new Notification ('CMD 4 Rendz', {
+            body: 'Your render is complete'
+        });
         // After 3 seconds, remove the show class from DIV
-        setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
+        // setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
         rOut.innerHTML = "Render Complete"
     } else {
         rOut.innerHTML = "Something went wrong :(";
