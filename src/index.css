@@ -120,18 +120,119 @@ body {
 .renderBtn:hover {
   background-color: rgb(238, 137, 78);
 }
+.engine-drop {
+  background-color: rgb(175, 104, 76);
+  color: white;
+  padding: 16px;
+  font-size: 14px;
+  border: none;
+}
+
+.engine-select {
+  position: relative;
+  display: inline-block;
+  font-size: 0.7rem;
+}
+
+.engine-content {
+  display: none;
+  position: absolute;
+  background-color: #61605c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.engine-content a {
+  color: #ff7d32;
+  padding: 8px 6px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.engine-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.engine-select:hover .engine-content {display: flex; flex-direction: row;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.engine-select:hover .engine-drop {background-color: #8e553e;}
+
+#logBtn {
+  visibility: hidden;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  padding: 10px;
+  border-radius: 2px;
+  position: relative;
+  bottom: 10px;
+  background-color: rgb(31, 30, 30);
+  color: #ff7d32;
+}
+#logBtn:hover {
+  background-color: rgb(59, 59, 59);
+  color: #ff5132;
+}
+#logBtn.show {
+  visibility: visible;
+  transition: 350ms ease-in-out;
+}
+
 #render-out {
   overflow: auto;
   background-color: black;
-  color: #5d5d5a;
+  color: #55c50a;
   scrollbar-track-color: tomato;
-  position: fixed;
-  bottom: 11vh;
+  position: sticky;
   height: 80px;
   width: 70vw;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 15px;
 }
+
+#snackbar, #foodbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #ff7d32;
+  text-align: center;
+  border-radius: 3px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+}
+#snackbar.show, #foodbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
 .accordion {
   background-color: rgb(233, 200, 92);
   color: #444;
@@ -151,7 +252,7 @@ body {
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
-  padding: 5px 18px;
+  padding: 25px 18px;
   background-color: rgb(58, 55, 54);
   gap: 5px;
   display: none;
@@ -170,5 +271,8 @@ body {
   }
   .rndr-pref {
     width: 7rem;
+  }
+  .rndr-pref:hover {
+    width: 7.5rem;
   }
 }
