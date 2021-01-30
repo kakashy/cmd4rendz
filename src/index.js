@@ -15,6 +15,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+    icon: path.join(__dirname, 'resources/media/cmd4rndz.ico'),
     backgroundColor: '#d36729',
     webPreferences: {
       enableRemoteModule: true,
