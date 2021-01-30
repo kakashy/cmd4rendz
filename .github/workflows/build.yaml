@@ -53,6 +53,6 @@ jobs:
       uses: Roang-zero1/github-upload-release-artifacts-action@master
       with:
         args:
-        - out/make/squirrel.windows
+        - out/make/squirrel.windows/
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
