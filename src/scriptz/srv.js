@@ -1,9 +1,7 @@
 let spawn = require("child_process").spawn;
-var fs = require('fs');
 var path = require('path');
 const { shell, app } = require('electron').remote;
-const logFile = "%userprofile%/Documents/CMD4Rendz/Logs/render-info.txt";
-const fBar = document.getElementById("foodbar");
+// const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
 const lBtn = document.getElementById("logBtn");

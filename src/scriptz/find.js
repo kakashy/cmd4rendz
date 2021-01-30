@@ -1,5 +1,20 @@
 var path = require('path');
+var fs = require('fs');
+const { ipcRenderer} = require('electron');
 
+/* Running multiple windows results in multiple localStorages with the nth one being empty. In addition,
+updating the app results in an empty localStorage. To solve for both cases, blender.exe path is stored
+on a file on the main process and retrieved by the rendered process */
+// fetch blender.exe path stored in file
+ var documents = app.getPath("documents");
+ fs.readFile(path.join(documents, "CMD4Rendz","path.dat"), (err,data) => {
+   if (err) {
+     alert(err);
+   }
+   localStorage.setItem("filePath", data);
+   //Retrieving file's path
+   document.getElementById("filePath").innerHTML = localStorage.getItem("filePath");
+ });
 //blender file path handling
 let blenderPath = document.getElementById("blender-hold");
 blenderPath.addEventListener('drop', (e) => {
@@ -16,10 +31,12 @@ blenderPath.addEventListener('drop', (e) => {
        document.getElementById("blender-hold").style.background = "#d72323";
        document.getElementById("blender-hold").style.color = "white";
        document.getElementById("blender-hold").innerHTML = "Please use an executable file.";
-       localStorage.removeItem("filepath");
+       // localStorage.removeItem("filepath");
      } else if (bndrName == "blender.exe") {
       // Saving file's path to local storage
       localStorage.setItem("filePath", f.path);
+      ipcRenderer.send('async-blender', localStorage.getItem("filePath"));
+
           //Retrieving file's path
           document.getElementById("filePath").innerHTML = localStorage.getItem("filePath");
           //confirm to user that it's authentic
@@ -31,7 +48,7 @@ blenderPath.addEventListener('drop', (e) => {
         document.getElementById("blender-hold").style.background = "#d72323";
         document.getElementById("blender-hold").style.color = "white";
         document.getElementById("blender-hold").innerHTML = "Please drop a 'blender' application file";
-        localStorage.removeItem("filepath");
+        // localStorage.removeItem("filepath");
        } 
   }
 });

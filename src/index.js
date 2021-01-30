@@ -1,7 +1,11 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const path = require('path');
 const fs = require('fs');
 
+
+var home = require("os").homedir();
+var renderLog = home + '\\Documents\\CMD4Rendz\\Logs';
+var pathFile = path.join(home, '\\Documents\\CMD4Rendz\\path.dat');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -17,6 +21,8 @@ const createWindow = () => {
   },
     width: 600,
     height: 600,
+    minWidth: 400,
+    minHeight: 500,
   });
 
   // and load the index.html of the app.
@@ -35,8 +41,6 @@ const createWindow = () => {
 app.on('ready', createWindow);
 
 app.on('ready', () => {
-  var home = require("os").homedir();
-  var renderLog = home + '\\Documents\\CMD4Rendz\\Logs';
   if (!fs.existsSync(renderLog)){
     fs.mkdirSync(renderLog, {recursive: true});
   }
@@ -57,17 +61,14 @@ app.on('activate', () => {
     createWindow();
   }
 });
-// app.on('before-quit', () => {
-//   const path = './render-info.txt'
-// 
-//   fs.unlink(path, (err) => {
-//     if (err) {
-//       console.log(err)
-//       return
-//     }
-//     //render-info.txt removed
-//   })
-// })
+  ipcMain.on('async-blender', (event, arg) => {
+    var pathInfo = arg;
+  // if (!fs.existsSync(pathFile)){
+  //   fs.mkdirSync(pathFile, {recursive: true});
+  // }
+  fs.writeFile(pathFile, pathInfo, function(err){
+    if (err) throw err;
+  });
+  });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
+
