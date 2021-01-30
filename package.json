@@ -13,19 +13,22 @@
   },
   "keywords": [],
   "author": {
-    "name": "kakashy",
+    "name": "Kashy Zu",
     "email": "josephwawerug@gmail.com"
   },
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        
+        "icon": "src/resources/media/cmd4rndz.ico"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
+            "setupIcon": "src/resources/media/cmd4rndz.ico",
             "name": "Cmd4Rendz",
-            "icon": "./src/resources/media/cmd4rndz.ico",
             "asar": true
           }
         },
