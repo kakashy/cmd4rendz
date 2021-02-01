@@ -11,7 +11,7 @@
     <!--"blender" is used to find the program's .exe and
     add it to the path for use in CMD execution-->
   <div id="blender" class="tabcontent">
-    <p class="explain" id="explain">Please drag your prefered blender.exe. You only need to do this once.</p>
+    <p class="explain" id="explain" style="text-align: center;">Please drag your prefered blender.exe. You only need to do this once.</p>
     <div id="blender-hold" class="hold"> Drop 'em</div>
     <p id="filePath">Can't find path</p>
   </div>
@@ -21,8 +21,11 @@
   <div id="blend" class="tabcontent">
     <div id="blend-hold" class="hold">Drop your .blend file here</div>
     <!--behaviour can be found in ./scriptz/general.js-->
-    <button id="blend-reset" class="blend-reset">Reset</button>
-  </div>
+      <div class="bl-btns">
+        <button id="blend-reset" class="blend-reset">Reset</button>
+        <button id="open-blend" class="open-blend">Open this file</button>  
+      </div>
+    </div>
 
     <!--"render" does the render-->
   <div id="render" class="tabcontent">

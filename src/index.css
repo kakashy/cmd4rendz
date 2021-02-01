@@ -44,20 +44,43 @@ body {
 #filePath {
   font-size: 10px;
 }
-
 .blend-hold {
   transition: 250ms ease-in-out;
 }
 
+.bl-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 10px;
+}
+.bl-btns button {
+  background-color: rgb(61, 59, 59);
+  color: rgb(223, 217, 217);
+}
+
 .blend-reset {
-  width: 6rem;
+  width: 17vw;
   height: 1.5rem;
   border: none;
   outline: none;
   cursor: pointer;
 }
 .blend-reset:hover {
-  background-color: rgb(207, 202, 194);
+  background-color: rgb(240, 232, 219);
+  color: #333;
+}
+.open-blend {
+  width: 18vw;
+  height: 1.5rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.open-blend:hover {
+  background-color: #d68455;
+  color: #333;
 }
 
 .tabhold {
@@ -87,6 +110,7 @@ body {
   color: rgb(221, 205, 205);
   display: none;
   padding: 50px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 60vh;
@@ -245,12 +269,10 @@ body {
   transition: 0.4s;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
   background-color:  rgb(190, 157, 48);
 }
 
-/* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 25px 18px;
   background-color: rgb(58, 55, 54);

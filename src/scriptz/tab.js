@@ -7,7 +7,7 @@ function openSect(sectName) {
     }
 
     //show specific page content
-    document.getElementById(sectName).style.display ="block";
+    document.getElementById(sectName).style.display ="flex";
 }
 
 // default page

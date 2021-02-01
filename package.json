@@ -1,6 +1,6 @@
 {
-  "name": "CMD 4 Rendz",
-  "productName": "CMD 4 Rendz",
+  "name": "Cmd4Rendz",
+  "productName": "Cmd 4 Rendz",
   "version": "0.2",
   "description": "Leverage command line arguments to perform quick Blender renders",
   "main": "src/index.js",

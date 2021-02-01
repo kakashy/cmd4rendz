@@ -1,6 +1,6 @@
 let spawn = require("child_process").spawn;
 var path = require('path');
-const { shell, app } = require('electron').remote;
+var { shell, app } = require('electron').remote;
 // const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
