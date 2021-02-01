@@ -7,7 +7,12 @@ function openSect(sectName) {
     }
 
     //show specific page content
-    document.getElementById(sectName).style.display ="flex";
+    document.getElementById(sectName).style.display ="block";
+    if (document.getElementById(sectName)=="blender") {
+        document.getElementById(sectName).style.display ="flex";
+    } else if (document.getElementById(sectName)=="blend") {
+        document.getElementById(sectName).style.display ="flex";
+    }
 }
 
 // default page
