@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+# CMD 4 RENDZ
+A window app that renders out single images, image sequences and video output from .blend files made with Blender 3D program through it's command line.
 
-You can use the [editor on GitHub](https://github.com/kakashy/cmd4rendz/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Rendering through Blender's cli improves on time taken fractionally. This project was meant to automate parts of that process albeit using a GUI all the same.
+## Steps
+### Blender
+On the very first page, drop your Blender application file. This will be used to trigger the cli from your preferred Blender version.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![First Page Screenshot](./src/resources/media/screenshot/BlenderScreenshot.png)
+This only needs to be done once.
 
-### Markdown
+### Blend
+On the second page, drop your .blend project file.
+![Second Page Screenshot](./src/resources/media/screenshot/BlendScreenshot.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Render
+On the final page, click on Render! to start the job. File outputs will be stored in the .blend-specified path or C:\\. Customization will be added in future versions.
+![Third Page Screenshot](./src/resources/media/screenshot/RenderScreenshot.png)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kakashy/cmd4rendz/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Known Issues
+* Once the render job is initiated, Blender's cli runs silently which makes it difficult at the moment to stop without quiting the app altogether. A possible solution is to create a shell window for the render processes or assigning a specific PID.
