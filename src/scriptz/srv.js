@@ -52,7 +52,7 @@ irenderer.addEventListener("click", function(){
         
         let rEngine = sessionStorage.getItem("rEngine");
         let wd = path.dirname(localStorage.getItem("filePath"));
-        let comanda = 'c: && cd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
+        let comanda = 'pushd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + rEngine+ ' -f ' + sessionStorage.getItem("iFrame") + ' > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
         // safety net for null engine selection until I find a way to properly scrap .blend files
         if(rEngine==null){
             sessionStorage.setItem("rEngine", " CYCLES")
@@ -117,7 +117,7 @@ arenderer.addEventListener("click", function(){
 
     let arEngine = sessionStorage.getItem("arEngine");
     let wd = path.dirname(localStorage.getItem("filePath"));
-    let comanda = 'c: && cd ' + wd + ' && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
+    let comanda = 'pushd "' + wd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -E ' + arEngine + ' -s ' + sessionStorage.getItem("sFrame") + ' -e ' + sessionStorage.getItem("eFrame") + ' -a > %userprofile%/Documents/CMD4Rendz/Logs/render-info.txt';
     // safety net for null engine selection until I find a way to properly scrap .blend files
     if(arEngine==null){
         sessionStorage.setItem("arEngine", " CYCLES")
