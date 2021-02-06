@@ -32,6 +32,7 @@ body {
 #blender, #blend {
   flex-direction: column;
   align-items: center;
+  align-self: center;
   justify-content: center;
 }
 #render {
@@ -118,11 +119,13 @@ body {
   color: rgb(221, 205, 205);
   display: none;
   padding: 50px;
+  width: 80vw;
   height: 60vh;
   transition: 200ms ease-in-out;
+  justify-content: center;
 }
 .rndr-pref {
-  width: 15rem;
+  width: 10rem;
   border-radius: 5px;
   border-width: 2px;
   padding: 7px 10px;
@@ -131,8 +134,8 @@ body {
   background-color: rgb(218, 208, 194);
   color: black;
 }
-.rndr-pref:active, .rndr-pref:hover {
-  width: 17rem;
+.rndr-pref:focus {
+  width: 12rem;
   transition: 200ms ease-in-out;
 }
 .renderBtn {
@@ -189,11 +192,7 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .engine-select:hover .engine-drop {background-color: #8e553e;}
 
-<<<<<<< Updated upstream
-#logBtn {
-=======
 #logBtn, #folderBtn {
->>>>>>> Stashed changes
   visibility: hidden;
   outline: none;
   border: none;
@@ -206,19 +205,11 @@ body {
   background-color: rgb(31, 30, 30);
   color: #ff7d32;
 }
-<<<<<<< Updated upstream
-#logBtn:hover {
-  background-color: rgb(59, 59, 59);
-  color: #ff5132;
-}
-#logBtn.show {
-=======
 #logBtn:hover, #folderBtn:hover {
   background-color: rgb(59, 59, 59);
   color: #ff5132;
 }
 #logBtn.show, #folderBtn.show {
->>>>>>> Stashed changes
   visibility: visible;
   transition: 350ms ease-in-out;
 }
