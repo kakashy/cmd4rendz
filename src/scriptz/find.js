@@ -2,10 +2,6 @@ var path = require('path');
 var fs = require('fs');
 const { ipcRenderer} = require('electron');
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 /* Running multiple windows results in multiple localStorages with the nth one being empty. In addition,
 updating the app results in an empty localStorage. To solve for both cases, blender.exe path is stored
 on a file on the main process and retrieved by the rendered process */
@@ -80,11 +76,8 @@ blendPath.addEventListener('drop', (e) => {
       document.getElementById("blend-hold").style.background = "#17b978";
       document.getElementById("blend-hold").style.color = "#fff";
       document.getElementById("blend-hold").innerHTML = "Done! <br /> " + g.path;
-<<<<<<< Updated upstream
-=======
 
       
->>>>>>> Stashed changes
     } else {
       document.getElementById("blend-hold").style.background = "#d72323";
       document.getElementById("blend-hold").style.color = "#fff";

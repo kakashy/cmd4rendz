@@ -1,18 +1,11 @@
-<<<<<<< Updated upstream
-let spawn = require("child_process").spawn;
-=======
 const spawn = require("child_process").spawn;
->>>>>>> Stashed changes
 var path = require('path');
 var { shell, app } = require('electron').remote;
 // const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
 const lBtn = document.getElementById("logBtn");
-<<<<<<< Updated upstream
-=======
 const fBtn = document.getElementById("folderBtn");
->>>>>>> Stashed changes
 
 var irenderer = document.getElementById("img-renderBtn");
 var arenderer = document.getElementById("anim-renderBtn");
@@ -92,11 +85,8 @@ irenderer.addEventListener("click", function(){
             // fBar.className = "show";
             // show log button
             lBtn.className = "show";
-<<<<<<< Updated upstream
-=======
             // show folder button
             fBtn.className = "show";
->>>>>>> Stashed changes
 
             // After 3 seconds, remove the show class from DIV; EDIT: Commented out since a native notification might be a better choice
             // setTimeout(function(){ fBar.className = fBar.className.replace("show", ""); }, 3000);
@@ -139,11 +129,8 @@ arenderer.addEventListener("click", function(){
     };
         // Add the "show" class to DIV
         xBar.className = "show";
-<<<<<<< Updated upstream
-=======
         // show folder button
         fBtn.className = "show";
->>>>>>> Stashed changes
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
@@ -166,11 +153,8 @@ bat.on("exit", (code) => {
 
         // fBar.className = "show";
         lBtn.className = "show";
-<<<<<<< Updated upstream
-=======
         // show folder button
         fBtn.className = "show";
->>>>>>> Stashed changes
 
         const successNotification = new Notification ('CMD 4 Rendz', {
             body: 'Your render is complete'
@@ -201,8 +185,6 @@ lBtn.addEventListener("click", function(){
     shell.openPath(path.join(app.getPath("documents"), "CMD4Rendz", "Logs", "render-info.txt"));
 });
 
-<<<<<<< Updated upstream
-=======
 // open render folder
 fBtn.addEventListener("click", function(){
     // test
@@ -222,4 +204,3 @@ fBtn.addEventListener("click", function(){
     fBtn.innerHTML = "Open render folder"
 });
 
->>>>>>> Stashed changes
