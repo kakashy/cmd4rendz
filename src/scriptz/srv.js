@@ -1,6 +1,8 @@
 const spawn = require("child_process").spawn;
+const { exec } = require("child_process");
 var path = require('path');
 var { shell, app } = require('electron').remote;
+var fs = require('fs');
 // const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
@@ -190,17 +192,24 @@ fBtn.addEventListener("click", function(){
     // test
     fBtn.innerHTML = "Opening render folder"
     let bwd = path.dirname(localStorage.getItem("filePath"));
-    let outputCommandString = 'pushd "' + bwd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -y -P "' + path.join(__dirname, '../python/fileInfo.py') + '"';
+    let outputCommandString = 'pushd "' + bwd + '" && blender.exe -b "' + sessionStorage.getItem("blendPath") + '" -y -P ' + path.join(__dirname, '../python/fileInfo.py');
     alert(outputCommandString);
-    let outputCommand = spawn(outputCommandString, {
-      shell: true,
+    fs.writeFileSync(path.join(__dirname, '\\src\\resources\\parsed\\out.bat'), outputCommandString);
+    exec (outputCommandString, (error, stdout, stderr) => {
+        if (error) {
+            alert('error: ${error.message}');
+            return;
+        }
     });
-    outputCommand.stdout.on("data", (data) => {
-      alert(data);
-    });
-    outputCommand.stdout.on("err", (err) => {
-        alert(err);
-    });
+    // let outputCommand = spawn(outputCommandString, {
+    //   shell: true,
+    // });
+    // outputCommand.stdout.on("data", (data) => {
+    //   alert(data);
+    // });
+    // outputCommand.stdout.on("err", (err) => {
+    //     alert(err);
+    // });
     fBtn.innerHTML = "Open render folder"
 });
 
