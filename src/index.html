@@ -62,9 +62,12 @@
 
       </div>
     <div id="render-out">CMD_</div> <br />
-    <!--Ability to check logs-->
-    <button class="logBtn" id="logBtn">Check Logs</button>
-    <button class="folderBtn" id="folderBtn">Open render folder</button>
+    <div class="render-page-btns">
+      <button class="blender-cancelBtn" id="blender-cancelBtn">Cancel Blender Process</button>
+      <!--Ability to check logs-->
+      <button class="logBtn" id="logBtn">Check Logs</button>
+      <button class="folderBtn" id="folderBtn">Open render folder</button>
+    </div>
     <div id="snackbar">Render started...</div>
     <div id="foodbar">Render Complete!</div>
   </div>
@@ -81,4 +84,5 @@
 <script src="./scriptz/general.js"></script>
 <script src="./scriptz/srv.js"></script>
 <script src="./scriptz/find.js"></script>
+<script src="./scriptz/cancelProcess.js"></script>
 </html>

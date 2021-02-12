@@ -88,7 +88,7 @@ body {
   cursor: pointer;
 }
 .open-blend:hover {
-  background-color: #d68455;
+  background-color: #e76f29;
   color: #333;
 }
 
@@ -150,7 +150,7 @@ body {
   align-items: center;
 }
 .renderBtn:hover {
-  background-color: rgb(238, 137, 78);
+  background-color: #ff7d32;
 }
 .engine-drop {
   background-color: rgb(175, 104, 76);
@@ -173,6 +173,7 @@ body {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  transform: translateX(60px);
 }
 
 /* Links inside the dropdown */
@@ -192,7 +193,14 @@ body {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .engine-select:hover .engine-drop {background-color: #8e553e;}
 
-#logBtn, #folderBtn {
+.render-page-btns {
+  width: 50vw;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(autofit, minmax(240px, 1fr));
+}
+
+#blender-cancelBtn, #logBtn, #folderBtn {
   visibility: hidden;
   outline: none;
   border: none;
@@ -205,13 +213,13 @@ body {
   background-color: rgb(31, 30, 30);
   color: #ff7d32;
 }
-#logBtn:hover, #folderBtn:hover {
+#blender-cancelBtn:hover, #logBtn:hover, #folderBtn:hover {
   background-color: rgb(59, 59, 59);
   color: #ff5132;
 }
-#logBtn.show, #folderBtn.show {
+#blender-cancelBtn.show, #logBtn.show, #folderBtn.show {
   visibility: visible;
-  transition: 350ms ease-in-out;
+  transition: 200ms ease-in-out;
 }
 
 #render-out {
@@ -304,5 +312,20 @@ body {
   }
   .rndr-pref:hover {
     width: 7.5rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .tablink {
+    font-size: 20px;
+  }
+  .rndr-pref {
+    width: 12rem;
+  }
+  .render-page-btns {
+    width: 80vw;
+  }
+  .render-page-btns button {
+    width: 12rem;
   }
 }

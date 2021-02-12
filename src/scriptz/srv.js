@@ -1,13 +1,14 @@
 const spawn = require("child_process").spawn;
-const { exec } = require("child_process");
+// const { exec } = require("child_process");
 var path = require('path');
 var { shell, app } = require('electron').remote;
-var fs = require('fs');
+// var fs = require('fs');
 // const fBar = document.getElementById("foodbar");
 const rOut = document.getElementById("render-out");
 const xBar = document.getElementById("snackbar");
 const lBtn = document.getElementById("logBtn");
 const fBtn = document.getElementById("folderBtn");
+var cancelBlender = document.getElementById("blender-cancelBtn");
 
 var irenderer = document.getElementById("img-renderBtn");
 var arenderer = document.getElementById("anim-renderBtn");
@@ -67,6 +68,7 @@ irenderer.addEventListener("click", function(){
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
+        cancelBlender.className = "show";
         rOut.innerHTML = "Rendering...";
       let bat = spawn(comanda, {
             shell: true,
@@ -134,6 +136,8 @@ arenderer.addEventListener("click", function(){
         // show folder button
         fBtn.className = "show";
 
+        // cancelBlender.className = "show";
+
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
         rOut.innerHTML = "Rendering...";
@@ -188,6 +192,7 @@ lBtn.addEventListener("click", function(){
 });
 
 // open render folder
+/*
 fBtn.addEventListener("click", function(){
     // test
     fBtn.innerHTML = "Opening render folder"
@@ -212,4 +217,4 @@ fBtn.addEventListener("click", function(){
     // });
     fBtn.innerHTML = "Open render folder"
 });
-
+*/
