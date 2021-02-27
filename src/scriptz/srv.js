@@ -69,6 +69,7 @@ irenderer.addEventListener("click", function(){
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
         cancelBlender.className = "show";
+        fBtn.className = "";
         rOut.innerHTML = "Rendering...";
       let bat = spawn(comanda, {
             shell: true,
@@ -141,6 +142,8 @@ arenderer.addEventListener("click", function(){
         // After 3 seconds, remove the show class from DIV
         setTimeout(function(){ xBar.className = xBar.className.replace("show", ""); }, 3000);
         rOut.innerHTML = "Rendering...";
+
+        cancelBlender.className = "show";
     let bat = spawn(comanda, {
         shell: true,
     }
